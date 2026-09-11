@@ -14,7 +14,8 @@ import {
   Shield,
   Sun,
   Moon,
-  ChevronDown
+  ChevronDown,
+  UserPlus
 } from 'lucide-react';
 import { VoiceAssistantModal } from '../common/VoiceAssistantModal';
 
@@ -177,9 +178,30 @@ export const Navbar: React.FC = () => {
                         </div>
                       </button>
                     ))}
+
+                    {/* Direct Register Link inside dropdown */}
+                    <div className="pt-2 px-3 pb-1 border-t border-slate-100 dark:border-slate-800">
+                      <Link
+                        to="/login"
+                        onClick={() => setIsRoleDropdownOpen(false)}
+                        className="w-full py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition-colors"
+                      >
+                        <UserPlus className="w-3.5 h-3.5" /> Register / Sign In
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
+
+              {/* Prominent Direct Register / Login Button in Navbar */}
+              <Link
+                to="/login"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/80 dark:border-emerald-700/80 rounded-xl text-xs font-bold transition-all"
+                title="Register New Account or Sign In"
+              >
+                <UserPlus className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                <span>Register / Login</span>
+              </Link>
 
               {/* Notification Bell */}
               <div className="relative">

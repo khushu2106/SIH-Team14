@@ -77,6 +77,12 @@ export const authService = {
     return this.switchRole(role);
   },
 
+  registerUser(newUser: User): User {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(newUser));
+    window.dispatchEvent(new CustomEvent('farmsetu:role_changed', { detail: newUser }));
+    return newUser;
+  },
+
   logout(): void {
     localStorage.removeItem(STORAGE_KEY);
   }

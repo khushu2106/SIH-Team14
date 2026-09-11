@@ -12,7 +12,8 @@ import {
   ShieldCheck,
   FileText,
   BadgeCheck,
-  Bell
+  Bell,
+  UserPlus
 } from 'lucide-react';
 
 export const DashboardSidebar: React.FC = () => {
@@ -59,20 +60,28 @@ export const DashboardSidebar: React.FC = () => {
     <aside className="w-64 bg-white dark:bg-slate-900 border-r border-slate-200/80 dark:border-slate-800/80 p-5 flex flex-col justify-between hidden md:flex min-h-[calc(100vh-5rem)]">
       <div className="space-y-6">
         {/* User Card */}
-        <div className="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 flex items-center gap-3">
-          <img
-            src={user.avatar}
-            alt={user.name}
-            className="w-10 h-10 rounded-xl object-cover ring-2 ring-emerald-500/30"
-          />
-          <div className="overflow-hidden">
-            <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate">
-              {user.name}
-            </h4>
-            <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 capitalize block">
-              ● {user.role} Portal
-            </span>
+        <div className="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 space-y-2.5">
+          <div className="flex items-center gap-3">
+            <img
+              src={user.avatar}
+              alt={user.name}
+              className="w-10 h-10 rounded-xl object-cover ring-2 ring-emerald-500/30"
+            />
+            <div className="overflow-hidden flex-1">
+              <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate">
+                {user.name}
+              </h4>
+              <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 capitalize block">
+                ● {user.role} Portal
+              </span>
+            </div>
           </div>
+          <NavLink
+            to="/login"
+            className="w-full py-1.5 px-2 bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800 rounded-xl text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors"
+          >
+            <UserPlus className="w-3.5 h-3.5" /> Register / Change Account
+          </NavLink>
         </div>
 
         {/* Navigation Links */}

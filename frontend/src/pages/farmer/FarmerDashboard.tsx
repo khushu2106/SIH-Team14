@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { productService } from '../../services/productService';
 import { orderService } from '../../services/orderService';
@@ -20,7 +21,8 @@ import {
   CheckCircle2,
   Sparkles,
   RefreshCw,
-  ShoppingBag
+  ShoppingBag,
+  UserPlus
 } from 'lucide-react';
 
 export const FarmerDashboard: React.FC = () => {
@@ -94,6 +96,16 @@ export const FarmerDashboard: React.FC = () => {
             >
               <PlusCircle className="w-4 h-4" /> List Produce
             </Button>
+
+            <Link to="/login">
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-1.5 text-white border-emerald-400/60 hover:bg-white/10"
+              >
+                <UserPlus className="w-4 h-4 text-emerald-300" /> Register as New Farmer
+              </Button>
+            </Link>
           </div>
         </div>
 

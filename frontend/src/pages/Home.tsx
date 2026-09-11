@@ -16,7 +16,8 @@ import {
   Store,
   Users,
   CheckCircle2,
-  XCircle
+  XCircle,
+  UserPlus
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
@@ -50,14 +51,14 @@ export const Home: React.FC = () => {
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3 pt-4">
-              <Link to="/marketplace">
-                <Button size="lg" variant="primary" className="gap-2 text-base px-6">
-                  <Store className="w-5 h-5" /> Explore Direct Marketplace
+              <Link to="/login">
+                <Button size="lg" variant="harvest" className="gap-2 text-base px-6 shadow-lg shadow-amber-500/30">
+                  <UserPlus className="w-5 h-5" /> Farmer Registration (નોંધણી)
                 </Button>
               </Link>
-              <Link to="/farmer/dashboard">
-                <Button size="lg" variant="harvest" className="gap-2 text-base px-6">
-                  <Sprout className="w-5 h-5" /> Farmer Portal (કિસાન)
+              <Link to="/marketplace">
+                <Button size="lg" variant="primary" className="gap-2 text-base px-6">
+                  <Store className="w-5 h-5" /> Explore Marketplace
                 </Button>
               </Link>
               <Link to="/logistics">

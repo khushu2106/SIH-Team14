@@ -7,6 +7,7 @@ interface AuthContextType {
   role: UserRole;
   switchRole: (role: UserRole) => void;
   login: (role: UserRole) => void;
+  register: (newUser: User) => void;
   logout: () => void;
 }
 
@@ -35,13 +36,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     switchRole(role);
   };
 
+  const register = (newUser: User) => {
+    const updated = authService.registerUser(newUser);
+    setUser(updated);
+  };
+
   const logout = () => {
     authService.logout();
     setUser(DEMO_USERS.farmer);
   };
 
   return (
-    <AuthContext.Provider value={{ user, role: user.role, switchRole, login, logout }}>
+    <AuthContext.Provider value={{ user, role: user.role, switchRole, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );
